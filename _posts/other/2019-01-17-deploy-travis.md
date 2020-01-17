@@ -9,13 +9,13 @@ tags:
   - "#deploy"
 ---
 
-## 테스트 빌드 자동화 과정
+### 테스트 빌드 자동화 과정
 
-1. [Travis CI](https://travis-ci.org/)에 접속하여 Github 계정으로 로그인한다.
+## [Travis CI](https://travis-ci.org/)에 접속하여 Github 계정으로 로그인한다.
 
-2. Github 저장소를 검색하여 활성화시킨다.
+## Github 저장소를 검색하여 활성화시킨다.
 
-3. 프로젝트 설정
+## 프로젝트 설정
 
 ```yml
 language: java
@@ -48,9 +48,9 @@ notifications:
     - chmod +x gradlew
   ```
 
-4. commit 후 push 하면 build history/Email에서 성공여부를 확인 할 수 있다.
+## commit 후 push 하면 build history/Email에서 성공여부를 확인 할 수 있다.
 
-5. Travis CI 라벨 추가
+## Travis CI 라벨 추가
 
 빌드를 확인했던 화면에서 우측 상단의 build/(unknown) 라벨을 클릭하면 모달이 나온다.  
 모달에서 markdown을 선택하고 아래의 코드를 복사하여 라벨이 나오길 원하는 위치(README.md)에 추가한다.
@@ -63,17 +63,17 @@ notifications:
 
 - 과정
 
-1. IAM 추가
+## IAM 추가
 
 - AWS IAM 서비스에 사용자를 추가(프로그래밍 방식 엑세스)
 - 사용 정책은 기존 정책의 CodeDeploy와 S3 권한만 할당
 - 완성되면 엑세스키와 secret키가 생성되고 .csv 파일로 저장한다.
 
-2. S3 버킷 생성
+## S3 버킷 생성
 
 - Build된 jar파일을 보관할 S3버킷을 생성한다.
 
-3. IAM Role 추가
+## IAM Role 추가
 
 - key를 사용해 기능을 진행 할 IAM Role을 추가한다.(EC2, CodeDeploy)
 - IAM - 역할 - 역할 만들기
@@ -88,11 +88,11 @@ notifications:
 - 사용사례선택 -> CodeDeploy
 - 권한정책 연결 -> AWSCodeDeployRole
 
-4. EC2에 Code Deploy Role 추가
+## EC2에 Code Deploy Role 추가
 
 - EC2 인스턴스에서 IAM 역할 연결/바꾸기
 
-5. EC2에 CodeDeploy Agent 설치
+## EC2에 CodeDeploy Agent 설치
 
 - EC2에 ssh 접속 후 aws-cli 설치
 
@@ -137,7 +137,7 @@ sudo service codedeploy-agent start
 
 ```
 
-6. .travis.yml & appspec.yml 설정
+## .travis.yml & appspec.yml 설정
 
 AWS S3 : Travis CI가 Build 한 결과물을 받아서 CodeDeploy가 가져갈 수 있도록 보관할 수 있는 공간
 
@@ -162,12 +162,12 @@ AWS S3 : Travis CI가 Build 한 결과물을 받아서 CodeDeploy가 가져갈 �
 
 Travis CI의 저장소 Settings - Environment Variables 에 받은 키 값 등록
 
-7. 연동 확인
+## 연동 확인
 
 -현재 까지의 내용을 commit 후 push  
 (S3 Bucket에 접근할 수 없어 deploy가 실패 되었다 - Bucket 권한에서 새 ACL에 대한 접근을 허용하니 성공!)
 
-8. 프로젝트 압축하여 Bucket에 올리기
+## 프로젝트 압축하여 Bucket에 올리기
 
 - 아래 설정을 추가
 
@@ -187,7 +187,7 @@ deploy:
 
 ```
 
-9. Travis CI & S3 & CodeDeploy 연동
+## Travis CI & S3 & CodeDeploy 연동
 
 - AWS CodeDeploy 이동 - 애플리케이션 생성 (컴퓨팅 플랫폼 - EC2/온프레미스 / 배포유형 - 현재위치)
 
@@ -228,7 +228,7 @@ deploy:
 
 - commit & push
 
-10. CodeDeploy로 스크립트 실행
+## CodeDeploy로 스크립트 실행
 
 - 스크립트로 배포된 jar파일을 실행까지 진행
 
