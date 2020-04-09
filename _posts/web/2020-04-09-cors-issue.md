@@ -27,6 +27,7 @@ CORS의 기본적인 동작은 서버가 한 origin으로부터 요청을 받게
 - Simple Requests
 
 - 조건  
+
 1. HTTP Method가 GET, POST, HEAD 이셋 중에 하나로 요청한 경우 Simple Request 방식으로 요청  
 2. Fetch 표준 정책에서 정의한 Forbidden Header Name 이라는 헤더 목록(클라에서 자동으로 넣음)과 CORS-safelisted request header 라는 헤더 목록(클라에서 수동으로 넣을 수 있음)  
     이외에 다른 커스텀 헤더, 권한과 관련된 헤더가 없는 경우 Simple Request 방식으로 요청한다.  
@@ -34,6 +35,7 @@ CORS의 기본적인 동작은 서버가 한 origin으로부터 요청을 받게
     Simple  Request 방식으로 요청한다.  
 
 - 과정  
+
 1. 브라우저는 Request가 Cross-Origin 요청인 것을 판단하여 요청에 "Origin: https://foo.example" 헤더를 추가하여 외부 서버로 보낸다.  
 2. Cross-Origin으로부터 온 요청인 것을 안 서버는 Origin 헤더를 확인하며, 그 값이 허용이 되었는지 안되었는지를 확인한다.  
     그리고 "Access-Control-Allow-Origin: [서버에서 설정한 값]" 을 응답 헤더에 추가하여 클라이언트로 보낸다.  
@@ -65,7 +67,7 @@ CORS의 기본적인 동작은 서버가 한 origin으로부터 요청을 받게
 
 - 참고로, 외부 서버로 요청할 때 withCredentials를 true로 세팅하여 보냈다면, 외부 서버로 부터의 응답 헤더에 Access-Control-Allow-Origin의 값에 WildCard가 오면 안 된다. 무조건 명시적으로 Origin의 URL정보가 있어야 한다.
 
-출처: https://vvshinevv.tistory.com/60 [왜 모르는가?]
+* 출처: https://vvshinevv.tistory.com/60 [왜 모르는가?]
 
 
  
