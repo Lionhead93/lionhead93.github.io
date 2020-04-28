@@ -1,5 +1,5 @@
 ---
-title: "Gadle 과 Maven"
+title: "Gradle 과 Maven"
 date: 2019-01-13
 categories:
   - Build
