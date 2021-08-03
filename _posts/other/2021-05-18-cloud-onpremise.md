@@ -1,6 +1,6 @@
 ---
 title: "온프레미스(On-premise)와 클라우드(Cloud)"
-date: 2021-xx-xx
+date: 2021-05-18
 categories:
   - infra
 tags:
